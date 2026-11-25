@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetBanquet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <meta name="theme-color" content="#1b6b3a">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <header>
+        <h1>BudgetBanquet</h1>
+    </header>
+
+    <main>
+        <section id="home" class="screen">
+            <div class="budget-card">
+                <p class="budget-label">Your weekly food budget</p>
+                <p class="budget-amount" id="home-budget"></p>
+                <p class="budget-detail" id="home-detail"></p>
+                <progress id="home-progress" value="0" max="100"
+                 aria-label="Shopping list cost compared with your weekly budget"></progress>
+                <p class="budget-detail" id="home-status"></p>
+            </div>
+
+            <h3 class="section-title">Recommended recipes</h3>
+            <ul id="home-recipes"></ul>
+            <p id="home-note" class="note"></p>
+        </section>
+
+        <section id="recipes" class="screen">
+            <h2>Recipes</h2>
+            <label for="recipe-search">Search recipes</label>
+            <input type="search" id="recipe-search" placeholder="e.g. pasta">
+            <p id="recipe-message" role="status"></p>
+            <ul id="recipe-list"></ul>
+        </section>
+
+        <section id="recipe-detail" class="screen">
+            <button id="back-button" type="button">← Back to recipes</button>
+            <h2 id="detail-title"></h2>
+            <img id="detail-image" alt="">
+            <button id="plan-button" type="button"></button>
+            <p id="plan-message" role="status"></p>
+            <h3>Ingredients</h3>
+            <ul id="detail-ingredients"></ul>
+            <h3>Method</h3>
+            <div id="detail-method"></div>
+        </section>
+
+        <section id="list" class="screen">
+            <h2>Shopping list</h2>
+            <p id="shopping-summary"></p>
+            <ul id="shopping-items"></ul>
+            <p id="shopping-total" role="status"></p>
+            <button id="clear-plan" type="button">Clear plan</button>
+        </section>
+
+        <section id="settings" class="screen">
+            <h2>Settings</h2>
+            <form id="settings-form">
+                <label for="budget">Weekly Food Budget (£)</label>
+                <input type="number" id="budget" min="1" step="0.05" required>
+
+                <label for="meals">Dinners per week</label>
+                <input type="number" id="meals" min="1" max="14" required>
+
+                <label for="people">People eating</label>
+                <input type="number" id="people" min="1" max="10" required>
+
+                <label for="diet">Diet</label>
+                <select id="diet">
+                    <option value="none">No restriction</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="halal">Halal</option>
+                </select>
+
+                <label for="avoid">Allergies and dislikes (separate with commas)</label>
+                <input type="text" id="avoid" placeholder="e.g., nuts, mushroom">
+
+                <button type="submit">Save Settings</button>
+            </form>
+            <p id="save-message" role="status"></p>
+        </section>
+    </main>
+
+    <nav>
+        <button data-screen="home">Home</button>
+        <button data-screen="recipes">Recipes</button>  
+        <button data-screen="list">Shopping List</button>
+        <button data-screen="settings">Settings</button>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>
